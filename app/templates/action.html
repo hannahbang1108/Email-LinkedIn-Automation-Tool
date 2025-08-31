@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+</head>
+<hr class="vline" />
+<div class="formbold-main-wrapper" style="float: left;width: 50%;">
+  <div class="formbold-form-wrapper">
+    <form action="/email-sent" method="POST" enctype="multipart/form-data" target="_blank">
+      <h1>Send Emails</h1><br><br>
+      <div>
+        <label for="subject" class="formbold-form-label">
+          Email Subject
+          <div class="tooltip">[?]
+            <span class="tooltiptext">Column options: First Name, Last Name, Title, Company Name for Emails, Person
+              Linkedin Url, Company Linkedin Url,
+              Company Address, Company City, Company State, Company Country </span>
+          </div>
+        </label>
+        <textarea rows="1" name="subject" id="subject" class="formbold-form-input"></textarea>
+      </div>
+
+      <div class="formbold-mb-3 formbold-form-label">
+        <label for="message">Email:
+          <div class="tooltip">[?]
+            <span class="tooltiptext">Column options: First Name, Last Name, Title, Company Name for Emails, Person
+              Linkedin Url, Company Linkedin Url,
+              Company Address, Company City, Company State, Company Country </span>
+          </div>
+          <textarea rows="10" name="message" id="message" class="formbold-form-input"></textarea>
+        </label>
+      </div>
+
+      <button class="formbold-btn">Send Emails</button>
+    </form>
+  </div>
+</div>
+<div class="formbold-main-wrapper">
+  <div class="formbold-form-wrapper">
+    <form action="/linkedin-outreach" method="POST" enctype="multipart/form-data" target="_blank">
+      <h1>Send Linkedin Messages</h1><br><br>
+      <div id="linkedin_outreach">
+        <div class="formbold-mb-3 formbold-form-label">
+          <label for="linkedin_message">Linkedin Message:</label>
+          <textarea rows="14" name="linkedin_message" id="linkedin_message" class="formbold-form-input" autofocus></textarea>
+          <div id="the-count">
+            <span id="current">0</span>
+            <span id="maximum">/ 300</span>
+          </div>
+          <button class="formbold-btn">Generate Links</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  /* Universal box-sizing reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Sets the font for the body of the page */
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Sets a bottom margin for elements */
+  .formbold-mb-3 {
+    margin-bottom: 15px;
+  }
+
+  /* Styles the main wrapper for the form to center it on the page */
+  .formbold-main-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+  }
+
+  /* Styles the form wrapper with a maximum width, padding, and a white background */
+  .formbold-form-wrapper {
+    margin: 0 auto;
+    max-width: 570px;
+    width: 100%;
+    background: white;
+    padding: 40px;
+  }
+
+  /* Styles an image to be a centered block with a bottom margin */
+  .formbold-img {
+    display: block;
+    margin: 0 auto 45px;
+  }
+
+  /* Styles a container for input fields to be a flexible box with a gap */
+  .formbold-input-wrapp>div {
+    display: flex;
+    gap: 20px;
+  }
+
+  /* Styles a flexible box for inputs with a gap and bottom margin */
+  .formbold-input-flex {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+
+  /* Sets the width for child elements of the flexible input container */
+  .formbold-input-flex>div {
+    width: 50%;
+  }
+
+  /* Styles the main form input fields */
+  .formbold-form-input {
+    width: 100%;
+    padding: 13px 22px;
+    border-radius: 5px;
+    border: 1px solid #dde3ec;
+    background: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    color: #536387;
+    outline: none;
+    resize: none;
+  }
+
+  /* Styles the placeholder text of form inputs */
+  .formbold-form-input::placeholder,
+  select.formbold-form-input,
+  .formbold-form-input[type='date']::-webkit-datetime-edit-text,
+  .formbold-form-input[type='date']::-webkit-datetime-edit-month-field,
+  .formbold-form-input[type='date']::-webkit-datetime-edit-day-field,
+  .formbold-form-input[type='date']::-webkit-datetime-edit-year-field {
+    color: rgba(83, 99, 135, 0.5);
+  }
+
+  /* Styles form inputs on focus with a border and box shadow */
+  .formbold-form-input:focus {
+    border-color: #6a64f1;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Styles the form labels */
+  .formbold-form-label {
+    color: #07074D;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  /* Styles a flexible container for file inputs */
+  .formbold-form-file-flex {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Resets the margin for labels inside the file input container */
+  .formbold-form-file-flex .formbold-form-label {
+    margin-bottom: 0;
+  }
+
+  /* Styles the file input field */
+  .formbold-form-file {
+    font-size: 14px;
+    line-height: 24px;
+    color: #536387;
+  }
+
+  /* Hides the default file upload button */
+  .formbold-form-file::-webkit-file-upload-button {
+    display: none;
+  }
+
+  /* Styles a custom upload button using a pseudo-element */
+  .formbold-form-file:before {
+    content: 'Upload file';
+    display: inline-block;
+    background: #EEEEEE;
+    border: 0.5px solid #FBFBFB;
+    box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    padding: 3px 12px;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    color: #637381;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    margin-right: 20px;
+  }
+
+  /* Styles the form buttons */
+  .formbold-btn {
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 14px 25px;
+    border: none;
+    font-weight: 500;
+    background-color: #6a64f1;
+    color: white;
+    cursor: pointer;
+    margin-top: 25px;
+  }
+
+  /* Styles the button on hover with a box shadow */
+  .formbold-btn:hover {
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Sets the width for an element */
+  .formbold-w-45 {
+    width: 45%;
+  }
+
+  /* Styles the tooltip container */
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+
+  /* Styles the tooltip text box */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 360px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+  }
+
+  /* Makes the tooltip text visible on hover */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  /* Styles all tables, table headers, and table cells with a black border */
+  table,
+  th,
+  td {
+    border: 1px solid black;
+  }
+
+  /* Styles the vertical line that divides the page */
+  .vline {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    bottom: 0;
+    margin: 0;
+    border: none;
+    border-right: solid 1px black;
+    z-index: 10;
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  // A jQuery function that listens for keyup events on the linkedin_message textarea
+  $('#linkedin_message').keyup(function() {
+    // Gets the current number of characters in the textarea
+    var characterCount = $(this).val().length,
+      // Selects the element to display the current count
+      current = $('#current'),
+      // Selects the element to display the maximum count
+      maximum = $('#maximum'),
+      // Selects the container for the count
+      theCount = $('#the-count');
+    // Updates the text of the current count element
+    current.text(characterCount);
+  });
+</script>
+</html>

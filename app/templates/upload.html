@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+<hr class="vline" />
+<div class="formbold-main-wrapper" style="float: left;width: 50%;">
+    <div class="formbold-form-wrapper">
+        <form action="/action" method="POST" enctype="multipart/form-data">
+            <h1>Emails & LinkedIn</h1><br><br>
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="firstname" class="formbold-form-label"> First Name </label>
+                    <input type="text" name="firstname" id="firstname" placeholder="Your first name"
+                        class="formbold-form-input" />
+                </div>
+
+                <div>
+                    <label for="lastname" class="formbold-form-label"> Last Name </label>
+                    <input type="text" name="lastname" id="lastname" placeholder="Your last name"
+                        class="formbold-form-input" />
+                </div>
+            </div>
+
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="email" class="formbold-form-label"> Email </label>
+                    <div>
+                        <input type="email" name="email" id="email" placeholder="example@email.com"
+                            class="formbold-form-input" />
+                    </div>
+                </div>
+                <div>
+                    <label for="phone" class="formbold-form-label"> Phone </label>
+                    <input type="text" name="phone" id="phone" placeholder="Phone number" class="formbold-form-input" />
+                </div>
+            </div>
+
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="role" class="formbold-form-label"> Role </label>
+                    <select id="role" name="role" class="formbold-form-input" style="color:black">
+                        <option value="Data Scientist" class="formbold-form-input">Data Scientist</option>
+                        <option value="Software Engineer" class="formbold-form-input">Software Engineer</option>
+                        <option value="Founder" class="formbold-form-input">Founder</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="upload" class="formbold-form-label">
+                        Upload CSV file
+                    </label>
+                    <input type="file" name="upload" id="upload" class="formbold-form-file" multiple/>
+                </div>
+            </div>
+            <button class="formbold-btn">Submit</button>
+        </form>
+    </div>
+</div>
+</div>
+<div class="formbold-main-wrapper" style="float: left;width: 50%;">
+    <div class="formbold-form-wrapper">
+        <form action="/person-deleted" method="POST" enctype="multipart/form-data">
+            <h1>Remove Client</h1><br><br>
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="firstname" class="formbold-form-label"> First Name </label>
+                    <input type="text" name="firstname" id="firstname" placeholder="Your first name"
+                        class="formbold-form-input" />
+                </div>
+
+                <div>
+                    <label for="lastname" class="formbold-form-label"> Last Name </label>
+                    <input type="text" name="lastname" id="lastname" placeholder="Your last name"
+                        class="formbold-form-input" />
+                </div>
+            </div>
+            <div class="formbold-input-wrapp">
+                <div>
+                    <label for="directory" class="formbold-form-label"> Upload Directory </label>
+                    <input type="text" name="path" id="path" placeholder="Path to Contact CSVs"
+                        class="formbold-form-input" />
+                </div>
+            </div>
+            <button class="formbold-btn">Submit</button>
+        </form><br><br>
+        <form action="/company-deleted" method="POST" enctype="multipart/form-data">
+            <h1>Remove Company</h1><br><br>
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="companyname" class="formbold-form-label"> Company Name </label>
+                    <input type="text" name="companyname" id="companyname" placeholder="Company Name"
+                        class="formbold-form-input" />
+                </div>
+            </div>
+            <div class="formbold-input-wrapp">
+                <div>
+                    <label for="directory" class="formbold-form-label"> Upload Directory </label>
+                    <input type="text" name="path" id="path" placeholder="Path to Contact CSVs"
+                        class="formbold-form-input" />
+                </div>
+            </div>
+            <button class="formbold-btn">Submit</button>
+        </form>
+    </div>
+</div>
+</div>
+<style>
+    /* CSS pulled from a template on Formbold: https://formbold.com/templates
+    All credit for this section of styling goes to them*/
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    /* Universal box-sizing reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Sets the font for the body of the page */
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* Sets a bottom margin for elements */
+    .formbold-mb-3 {
+        margin-bottom: 15px;
+    }
+
+    /* Styles the main wrapper for the form to center it on the page */
+    .formbold-main-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px;
+    }
+
+    /* Styles the form wrapper with a maximum width, padding, and a white background */
+    .formbold-form-wrapper {
+        margin: 0 auto;
+        max-width: 570px;
+        width: 100%;
+        background: white;
+        padding: 40px;
+    }
+
+    /* Styles an image to be a centered block with a bottom margin */
+    .formbold-img {
+        display: block;
+        margin: 0 auto 45px;
+    }
+
+    /* Styles a container for input fields to be a flexible box with a gap */
+    .formbold-input-wrapp>div {
+        display: flex;
+        gap: 20px;
+    }
+
+    /* Styles a flexible box for inputs with a gap and bottom margin */
+    .formbold-input-flex {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 15px;
+    }
+
+    /* Sets the width for child elements of the flexible input container */
+    .formbold-input-flex>div {
+        width: 50%;
+    }
+
+    /* Styles the main form input fields */
+    .formbold-form-input {
+        width: 100%;
+        padding: 13px 22px;
+        border-radius: 5px;
+        border: 1px solid #dde3ec;
+        background: #ffffff;
+        font-weight: 500;
+        font-size: 16px;
+        color: #536387;
+        outline: none;
+        resize: none;
+    }
+
+    /* Styles the placeholder text of form inputs */
+    .formbold-form-input::placeholder,
+    select.formbold-form-input,
+    .formbold-form-input[type='date']::-webkit-datetime-edit-text,
+    .formbold-form-input[type='date']::-webkit-datetime-edit-month-field,
+    .formbold-form-input[type='date']::-webkit-datetime-edit-day-field,
+    .formbold-form-input[type='date']::-webkit-datetime-edit-year-field {
+        color: rgba(83, 99, 135, 0.5);
+    }
+
+    /* Styles form inputs on focus with a border and box shadow */
+    .formbold-form-input:focus {
+        border-color: #6a64f1;
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Styles the form labels */
+    .formbold-form-label {
+        color: #07074D;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    /* Styles a flexible container for file inputs */
+    .formbold-form-file-flex {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* Resets the margin for labels inside the file input container */
+    .formbold-form-file-flex .formbold-form-label {
+        margin-bottom: 0;
+    }
+
+    /* Styles the file input field */
+    .formbold-form-file {
+        font-size: 14px;
+        line-height: 24px;
+        color: #536387;
+    }
+
+    /* Hides the default file upload button */
+    .formbold-form-file::-webkit-file-upload-button {
+        display: none;
+    }
+
+    /* Styles a custom upload button using a pseudo-element */
+    .formbold-form-file:before {
+        content: 'Upload file';
+        display: inline-block;
+        background: #EEEEEE;
+        border: 0.5px solid #FBFBFB;
+        box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.25);
+        border-radius: 3px;
+        padding: 3px 12px;
+        outline: none;
+        white-space: nowrap;
+        cursor: pointer;
+        color: #637381;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        margin-right: 10px;
+    }
+
+    /* Styles the form buttons */
+    .formbold-btn {
+        text-align: center;
+        width: 100%;
+        font-size: 16px;
+        border-radius: 5px;
+        padding: 14px 25px;
+        border: none;
+        font-weight: 500;
+        background-color: #6a64f1;
+        color: white;
+        cursor: pointer;
+        margin-top: 25px;
+    }
+
+    /* Styles the button on hover with a box shadow */
+    .formbold-btn:hover {
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Sets the width for an element */
+    .formbold-w-45 {
+        width: 45%;
+    }
+
+    /* Styles the tooltip container */
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black;
+    }
+
+    /* Styles the tooltip text box */
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 360px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: -5px;
+        left: 105%;
+    }
+
+    /* Makes the tooltip text visible on hover */
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+
+    /* Styles all tables, table headers, and table cells with a black border */
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+</style>
+<script type="text/javascript">
+    // A function to copy text to the clipboard
+    function copy_message(message) {
+        navigator.clipboard.writeText(message);
+    }
+
+    // A placeholder function for a LinkedIn list
+    function linkedin_list() {
+
+    }
+</script>
+
+</html>
