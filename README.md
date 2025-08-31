@@ -14,7 +14,7 @@ There are 3 main templates:
 2) action.html, which shows text boxes for inputting email and LinkedIn message content
 3) linkedin_outreach.html, which shows a formatted list of all linkedIn urls for every contact in the CSV
 
-## Tools Used
+## Technologies Used
 * HTML: Structures the web page content and user interface with elements like forms and buttons.
 * CSS: Styles the HTML, controlling the visual design, layout, and appearance of the web pages.
 * JavaScript: Adds interactivity and dynamic behavior to the web page, running directly in the browser.
