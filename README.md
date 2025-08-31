@@ -13,6 +13,18 @@ There are 3 main templates:
 1) upload.html, which is the default home page that lets you fill in your information to generate an email signature, or delete specific contacts or entire companies from the uploaded data
 2) action.html, which shows text boxes for inputting email and LinkedIn message content
 3) linkedin_outreach.html, which shows a formatted list of all linkedIn urls for every contact in the CSV
+
+## Tools Used
+* HTML: Structures the web page content and user interface with elements like forms and buttons.
+* CSS: Styles the HTML, controlling the visual design, layout, and appearance of the web pages.
+* JavaScript: Adds interactivity and dynamic behavior to the web page, running directly in the browser.
+* Python: Handles all the backend logic, processing data and connecting to APIs.
+* Flask: The web framework used to create the web interface and handle requests.
+* pandas: The library used for data manipulation, specifically for reading and processing the contact CSV files.
+* Google Cloud Console: The platform used to manage and configure the project, enable the Gmail API, and generate the necessary credentials.
+* Google Gmail API: The service that allows the application to send emails on a user's behalf.
+* python-dotenv: The library that handles environment variables for secure and flexible configuration.
+* Git: The version control system used to track changes and manage the project.
    
 ## Getting Started
 
