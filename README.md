@@ -57,6 +57,7 @@ To install the project, download all the content in this folder.
     * Enable the **Gmail API** from the API Library (https://developers.google.com/workspace/guides/enable-apis)
     * Navigate to the **OAuth consent screen** and set the "User type" to **External**. Complete the required verification details (https://developers.google.com/workspace/guides/configure-oauth-consent)
     * Go to the **Credentials** page, create an **OAuth 2.0 Client ID**, and choose "Desktop app" as the application type (https://developers.google.com/workspace/guides/create-credentials)
+    * Download the 'credentials.json' file and put it in the same directory as your project
 
 ## Executing Program
 
