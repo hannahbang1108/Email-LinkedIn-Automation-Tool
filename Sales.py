@@ -74,7 +74,7 @@ class Sales:
             else:
                 # Creates an InstalledAppFlow object from the client secrets file
                 flow = InstalledAppFlow.from_client_secrets_file(
-                    os.environ.get('GOOGLE_CREDENTIALS_PATH'), SCOPES
+                    "credentials.json", SCOPES
                 )
                 # Runs the local server to handle the authentication redirect and get credentials
                 creds = flow.run_local_server(port=0)
@@ -92,7 +92,7 @@ class Sales:
                 # Builds a Gmail API service object using the authenticated credentials
                 service = build("gmail", "v1", credentials=creds)
                 # Opens the contact CSV file
-                contacts_file = open(os.environ('CONTACTS_CSV_PATH') + "\\" + {file.filename})
+                contacts_file = open(os.environ(file.filename)
                 # Reads the CSV file into a pandas DataFrame
                 df = pd.read_csv(contacts_file)
                 # Extracts the 'Email' column and converts it to a list
@@ -193,7 +193,7 @@ class Sales:
         # Checks if the role is "Founder" to format the title differently
         if self.role == "Founder":
             # Returns the HTML signature for a "Founder" role
-            return f"<p><b>{full_name}</b><br>{self.role} of Company Name<br>Company Addrress<br>Company City and State<br>Mobile: {formatted_mobile}<br>Website: <a href=\"www.company.com\">company url</a></p>"
+            return f"<p><b>{full_name}</b><br>{self.role} of Company Name<br>Company Address<br>Company City and State<br>Mobile: {formatted_mobile}<br>Website: <a href=\"www.company.com\">company url</a></p>"
         # Returns the HTML signature for all other roles
         return f"<p><b>{full_name}</b><br>{self.role} at Company Name<br>Company Address<br>Company City and State<br>Mobile: {formatted_mobile}<br>Website: <a href=\"www.company.com\">company url</a></p>"
 
@@ -204,13 +204,13 @@ class Sales:
         # Defines a string containing all allowed characters for the message
         all_alphanumeric = string.ascii_letters + string.digits + " " + "\"\'?!,[]@#$%^&*." # Contains all letters and numbers
         # Opens the HTML template file in write mode to create the list
-        with open(os.environ.get('LINKEDIN_OUTREACH_PATH'),"w") as f:
+        with open("app\\templates\\linkedin_outreach.html","w") as f:
             # Writes the starting HTML ordered list tag
             f.write("<ol class=\"formbold-form-input\">\n")
             # Iterates through each uploaded contact file
             for file in self.contacts:
                 # Opens the current contact file, ignoring encoding errors
-                file = open(os.environ('CONTACTS_CSV_PATH') + "\\" + {file.filename},errors="ignore")
+                file = open(os.environ(file.filename,errors="ignore")
                 # Reads the CSV file into a pandas DataFrame
                 df = pd.read_csv(file)
                 # Extracts the 'Person Linkedin Url' column and converts it to a list
@@ -453,4 +453,5 @@ class Sales:
     z-index:10;
     }""")
             # Closes the file.
+
             f.close()
