@@ -14,7 +14,7 @@ There are 3 main templates:
 2) action.html, which shows text boxes for inputting email and LinkedIn message content
 3) linkedin_outreach.html, which shows a formatted list of all linkedIn urls for every contact in the CSV
 
-## Technologies Used
+## Main Technologies / Libraries Used
 * HTML: Structures the web page content and user interface with elements like forms and buttons.
 * CSS: Styles the HTML, controlling the visual design, layout, and appearance of the web pages.
 * JavaScript: Adds interactivity and dynamic behavior to the web page, running directly in the browser.
@@ -23,7 +23,6 @@ There are 3 main templates:
 * pandas: The library used for data manipulation, specifically for reading and processing the contact CSV files.
 * Google Cloud Console: The platform used to manage and configure the project, enable the Gmail API, and generate the necessary credentials.
 * Google Gmail API: The service that allows the application to send emails on a user's behalf.
-* python-dotenv: The library that handles environment variables for secure and flexible configuration.
 * Git: The version control system used to track changes and manage the project.
    
 ## Getting Started
@@ -42,41 +41,28 @@ To install the project, download all the content in this folder.
 
 1.  **Clone the Repository**:
     ```sh
-    git clone [https://github.com/hannahbang1108/Email-LinkedIn-Automation-Tool.git]
+    git clone https://github.com/hannahbang1108/Email-LinkedIn-Automation-Tool.git
     cd Email-LinkedIn-Automation-Tool
     ```
-
-2.  **Install Dependencies**:
+    
+1.  **Install Necessary Libraries**:
     ```sh
-    pip install -r requirements.txt
+    pip install pandas Flask google-auth google-auth-oauthlib google-api-python-client
     ```
 
-3.  **Configure Your Google Cloud Project**:
+2.  **Configure Your Google Cloud Project**:
     This application uses the Gmail API to send emails. You need to create your own credentials to use it.
 
-    * Go to the [Google Cloud Console](https://console.cloud.google.com/) and create a new project.
-    * Enable the **Gmail API** from the API Library.
-    * Navigate to the **OAuth consent screen** and set the "User type" to **External**. Complete the required verification details.
-    * Go to the **Credentials** page, create an **OAuth 2.0 Client ID**, and choose "Desktop app" as the application type.
-    * Download the `client_secrets.json` file.
-    * Place this file in the root directory of this project.
+    * Go to the Google Cloud Console and create a new project (https://developers.google.com/workspace/guides/create-project)
+    * Enable the **Gmail API** from the API Library (https://developers.google.com/workspace/guides/enable-apis)
+    * Navigate to the **OAuth consent screen** and set the "User type" to **External**. Complete the required verification details (https://developers.google.com/workspace/guides/configure-oauth-consent)
+    * Go to the **Credentials** page, create an **OAuth 2.0 Client ID**, and choose "Desktop app" as the application type (https://developers.google.com/workspace/guides/create-credentials)
 
-4.  **Create Your `.env` file**:
-    Create a file named `.env` in the root of your project and add the following line, ensuring the path matches your downloaded credentials file.
+## Executing Program
 
-    ```
-    GOOGLE_CREDENTIALS_PATH=client_secrets.json
-    CONTACTS_CSV_PATH = the full file path to your folder that contains your contact CSVs (all the CSVs I used were generated using apollo.io, so if you are importing from somewhere else, make sure the necessary columsn exist in the uploaded CSV)
-    LINKEDIN_OUTREACH_PATH = the full file path to linkedin_outreach.html, typically in the templates folder
-    ```
-
-Now you can run the application with your own Google Cloud credentials.
+In order to execute the project on your device, run run.py and follow the produced link.
 
 ## Credits
 
 * Most of the CSS was pulled from a template from Formbold: https://formbold.com/templates
 * The starting point for automatically sending emails using the Gmail API was pulled from code on the Gmail API documentation: https://developers.google.com/workspace/gmail/api/guides/
-
-## Executing Program
-
-In order to execute the project on your device, run run.py and follow the produced link.
