@@ -92,7 +92,7 @@ class Sales:
                 # Builds a Gmail API service object using the authenticated credentials
                 service = build("gmail", "v1", credentials=creds)
                 # Opens the contact CSV file
-                contacts_file = open(os.environ(file.filename)
+                contacts_file = open(file.filename)
                 # Reads the CSV file into a pandas DataFrame
                 df = pd.read_csv(contacts_file)
                 # Extracts the 'Email' column and converts it to a list
@@ -455,3 +455,4 @@ class Sales:
             # Closes the file.
 
             f.close()
+
