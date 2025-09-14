@@ -92,7 +92,7 @@ class Sales:
                 # Builds a Gmail API service object using the authenticated credentials
                 service = build("gmail", "v1", credentials=creds)
                 # Opens the contact CSV file
-                contacts_file = open(file.filename)
+                contacts_file = open(os.environ(file.filename))
                 # Reads the CSV file into a pandas DataFrame
                 df = pd.read_csv(contacts_file)
                 # Extracts the 'Email' column and converts it to a list
@@ -210,7 +210,7 @@ class Sales:
             # Iterates through each uploaded contact file
             for file in self.contacts:
                 # Opens the current contact file, ignoring encoding errors
-                file = open(os.environ(file.filename,errors="ignore")
+                file = open(os.environ(file.filename,errors="ignore"))
                 # Reads the CSV file into a pandas DataFrame
                 df = pd.read_csv(file)
                 # Extracts the 'Person Linkedin Url' column and converts it to a list
@@ -455,4 +455,3 @@ class Sales:
             # Closes the file.
 
             f.close()
-
